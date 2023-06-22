@@ -2,7 +2,7 @@ package com.javajedi.dominios;
 
 import java.util.UUID;
 
-public class Jugador extends Integrante {
+public class Jugador extends Persona {
     private UUID id;
     private double altura;
     private Posicion posicion;

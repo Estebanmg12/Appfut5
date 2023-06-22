@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -7,46 +5,47 @@
   <groupId>com.javajedi</groupId>
   <artifactId>fut5</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <name>fut5</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://maven.apache.org</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
-  <plugin>
-    <artifactId>maven-assembly-plugin</artifactId>
-    <executions>
-      <execution>
-        <phase>package</phase>
-        <goals>
-          <goal>single</goal>
-        </goals>
-      </execution>
-    </executions>
-    <configuration>
-      <archive>
-        <manifest>
-          <addClasspath>true</addClasspath>
-          <mainClass>com.javajedi.App</mainClass>
-        </manifest>
-      </archive>
-      <descriptorRefs>
-        <descriptorRef>jar-with-dependencies</descriptorRef>
-      </descriptorRefs>
-    </configuration>
-  </plugin> 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <!-- Aqui pueden venir mas detalles
+        ...
+        -->
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.javajedi.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <!-- Aqui pueden venir mas detalles
+        ...
+        -->
+      </plugin>
+    </plugins>
+  </build>
+
 </project>

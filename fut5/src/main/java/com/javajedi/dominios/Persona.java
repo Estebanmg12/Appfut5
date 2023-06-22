@@ -1,15 +1,15 @@
 package com.javajedi.dominios;
 
-public abstract class Integrante {
+public abstract class Persona {
     private String nombre;
     private String apellido;
 
 
-    public Integrante(String nombre, String apellido) {
+    public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
     }
-
+    
     public String getNombre() {
         return nombre;
     }

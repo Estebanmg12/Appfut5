@@ -2,7 +2,7 @@ package com.javajedi.dominios;
 
 import java.time.LocalDate;
 
-public class Entrenador extends Integrante {
+public class Entrenador extends Persona {
     private LocalDate fechaDeNacimiento;
 
 
@@ -10,6 +10,7 @@ public class Entrenador extends Integrante {
         super(nombre, apellido);
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
+    
 
     public LocalDate getFechaDeNacimiento() {
 
