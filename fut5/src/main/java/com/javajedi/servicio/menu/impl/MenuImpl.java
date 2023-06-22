@@ -1,9 +1,5 @@
 package com.javajedi.servicio.menu.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.javajedi.dominios.Jugador;
-import com.javajedi.dominios.Posicion;
 import com.javajedi.servicio.entrada.impl.InputService;
 import com.javajedi.servicio.entrenador.impl.ServicioEntrenadorImpl;
 import com.javajedi.servicio.equipo.Impl.ServicioEquipoImpl;
@@ -35,6 +31,8 @@ public class MenuImpl implements Menu {
         capturaCrearMasEquipos = InputService.scanner.nextLine();
         }
         while(capturaCrearMasEquipos.equals("si"));
+        System.out.println();
+        jugadorNuevo.buscarJugador();
         
         
 
