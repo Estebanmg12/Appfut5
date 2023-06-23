@@ -24,7 +24,7 @@ public class MenuImpl implements Menu {
         capturaCrearJugador = InputService.scanner.nextLine();
         
         if(capturaCrearJugador.equals("si")){
-            for (int i = 0; i < 1; i++) {
+            for (int i = 0; i < 2; i++) {
             jugadorNuevo.crearJugador();
         } }
         System.out.println("Desea cargar mas equipos? Ingrese: si o no ");

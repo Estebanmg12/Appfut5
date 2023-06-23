@@ -12,15 +12,15 @@ import com.javajedi.servicio.posicion.ServicioPosicion;
 import com.javajedi.servicio.posicion.impl.ServicioPosicionImpl;
 
 public class ServicioJugadorImpl implements ServicioJugador {
-    List<Jugador> listaDeJugadores = new ArrayList<Jugador>();
+    List<Jugador> listaDeJugadores = new ArrayList<>();
     ServicioPosicion nuevaPosicion = new ServicioPosicionImpl();
-    Jugador nuevoJugador = new Jugador(null, null, 0, null, 0, false, 0);
     String capturaCapitan;
-    Equipo equipoQuePertenece = new Equipo();
     String capturaBuscarJugador;
 
     @Override
     public Jugador crearJugador() {
+        Jugador nuevoJugador = new Jugador(null, null, 0, null, 0, false, 0);
+        Equipo equipoQuePertenece = new Equipo();
 
         System.out.println("Por favor ingrese el nombre del jugador");
         nuevoJugador.setNombre(InputService.scanner.nextLine());
@@ -51,6 +51,7 @@ public class ServicioJugadorImpl implements ServicioJugador {
 
         System.out.println("Por favor ingrese el equipo al que pertenece el jugador");
         equipoQuePertenece.setNombre(InputService.scanner.nextLine());
+        nuevoJugador.setEquipo(equipoQuePertenece);
 
         listaDeJugadores.add(nuevoJugador);
         return nuevoJugador;
@@ -60,10 +61,14 @@ public class ServicioJugadorImpl implements ServicioJugador {
     public void buscarJugador() {
         System.out.println("Por favor ingrese el nombre del jugador a buscar: ");
         capturaBuscarJugador = InputService.scanner.nextLine();
+        
         for (int i = 0; i < listaDeJugadores.size(); i++) {
-            if(nuevoJugador.getNombre().equals(capturaBuscarJugador)){
-                System.out.println(nuevoJugador.getNombre()+ " " + nuevoJugador.getApellido()+ " "
-                + nuevoJugador.getPosicion().getNombre()+ " " + nuevoJugador.getEsCapitan()+ " " + equipoQuePertenece.getNombre());
+            if(listaDeJugadores.get(i).getNombre().equals(capturaBuscarJugador)){
+                System.out.println(listaDeJugadores.get(i).getNombre() +" " + 
+                listaDeJugadores.get(i).getApellido()+" " 
+                + listaDeJugadores.get(i).getPosicion().getNombre()+ " "+
+                listaDeJugadores.get(i).getEsCapitan()+ " "+
+                listaDeJugadores.get(i).getEquipo().getNombre());
             }
         }
     }
