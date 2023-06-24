@@ -2,9 +2,9 @@ package com.javajedi.servicio.equipo;
 
 import com.javajedi.dominios.Equipo;
 
-public interface ServivicioEquipo {
+public interface ServicioEquipo {
 
     Equipo crearEquipo();
-    Equipo buscarEquipo();
+    void buscarEquipo();
     Equipo eliminarEquipo();
 }

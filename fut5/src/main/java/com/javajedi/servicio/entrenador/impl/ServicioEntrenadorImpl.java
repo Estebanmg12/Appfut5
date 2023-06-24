@@ -10,14 +10,14 @@ public class ServicioEntrenadorImpl implements ServicioEntrenador{
 
     @Override
     public Entrenador crearEntrenador() {
-        Entrenador nuevoEntrenador = new Entrenador(null, null, null);
+        Entrenador entrenador = new Entrenador(null, null, null);
         int anioNacimiento, mesNacimiento, diaNacimiento;
 
         System.out.println("Por favor ingrese el nombre del entrenador");
-        nuevoEntrenador.setNombre(InputService.scanner.nextLine());
+        entrenador.setNombre(InputService.scanner.nextLine());
 
         System.out.println("Por favor ingrese el apellido del entrenador");
-        nuevoEntrenador.setApellido(InputService.scanner.nextLine());
+        entrenador.setApellido(InputService.scanner.nextLine());
 
         System.out.println("Por favor ingrese el año de nacimiento del entrenador");
         anioNacimiento = InputService.scanner.nextInt();
@@ -25,9 +25,10 @@ public class ServicioEntrenadorImpl implements ServicioEntrenador{
         mesNacimiento = InputService.scanner.nextInt();
         System.out.println("Por favor ingrese el dia de nacimiento del entrenador");
         diaNacimiento = InputService.scanner.nextInt();
-        nuevoEntrenador.setFechaDeNacimiento(LocalDate.of(anioNacimiento, mesNacimiento, diaNacimiento));
-        
-        return nuevoEntrenador;
+        entrenador.setFechaDeNacimiento(LocalDate.of(anioNacimiento, mesNacimiento, diaNacimiento));
+        InputService.scanner.nextLine();
+
+        return entrenador;
     }
     
 }

@@ -51,6 +51,15 @@ public class Equipo {
         this.entrenador = entrenador;
     }
 
+    public Jugador obtenerEquipo(String nombreJugador) {
+        for (Jugador jugador : listaDeJugadores) {
+            if (jugador.getNombre().equals(nombreJugador)) {
+                return jugador;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter fecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");

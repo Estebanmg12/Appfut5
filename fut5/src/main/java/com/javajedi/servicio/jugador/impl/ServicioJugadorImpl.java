@@ -1,24 +1,22 @@
 package com.javajedi.servicio.jugador.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.javajedi.dominios.Equipo;
 import com.javajedi.dominios.Jugador;
 import com.javajedi.dominios.Posicion;
 import com.javajedi.servicio.entrada.impl.InputService;
+import com.javajedi.servicio.equipo.Impl.ServicioEquipoImpl;
 import com.javajedi.servicio.jugador.ServicioJugador;
 import com.javajedi.servicio.posicion.ServicioPosicion;
 import com.javajedi.servicio.posicion.impl.ServicioPosicionImpl;
 
 public class ServicioJugadorImpl implements ServicioJugador {
-    List<Jugador> listaDeJugadores = new ArrayList<>();
+
     ServicioPosicion nuevaPosicion = new ServicioPosicionImpl();
     String capturaCapitan;
     String capturaBuscarJugador;
 
     @Override
-    public Jugador crearJugador() {
+    public Jugador crearJugador(ServicioEquipoImpl servicioEquipo) {
         Jugador nuevoJugador = new Jugador(null, null, 0, null, 0, false, 0);
         Equipo equipoQuePertenece = new Equipo();
 
@@ -51,25 +49,42 @@ public class ServicioJugadorImpl implements ServicioJugador {
 
         System.out.println("Por favor ingrese el equipo al que pertenece el jugador");
         equipoQuePertenece.setNombre(InputService.scanner.nextLine());
+        servicioEquipo.agregarJugadorAEquipo(nuevoJugador, equipoQuePertenece.getNombre());
+
         nuevoJugador.setEquipo(equipoQuePertenece);
 
-        listaDeJugadores.add(nuevoJugador);
         return nuevoJugador;
     }
 
     @Override
     public void buscarJugador() {
-        System.out.println("Por favor ingrese el nombre del jugador a buscar: ");
-        capturaBuscarJugador = InputService.scanner.nextLine();
-        
-        for (int i = 0; i < listaDeJugadores.size(); i++) {
-            if(listaDeJugadores.get(i).getNombre().equals(capturaBuscarJugador)){
-                System.out.println(listaDeJugadores.get(i).getNombre() +" " + 
-                listaDeJugadores.get(i).getApellido()+" " 
-                + listaDeJugadores.get(i).getPosicion().getNombre()+ " "+
-                listaDeJugadores.get(i).getEsCapitan()+ " "+
-                listaDeJugadores.get(i).getEquipo().getNombre());
+    ServicioEquipoImpl traemeLosEquipos = new ServicioEquipoImpl();
+    System.out.println("Por favor ingrese el nombre del jugador a buscar: ");
+    capturaBuscarJugador = InputService.scanner.nextLine();
+
+    boolean jugadorEncontrado = false;
+
+    for (Equipo equipo : traemeLosEquipos.getEquipos()) {
+        for (Jugador jugador : equipo.getListaDeJugadores()) {
+            if (jugador.getNombre().equals(capturaBuscarJugador)) {
+                System.out.println(jugador.getNombre() + " " +
+                        jugador.getApellido() + " " +
+                        jugador.getPosicion().getNombre() + " " +
+                        jugador.getEsCapitan() + " " +
+                        equipo.getNombre());
+                jugadorEncontrado = true;
+                break;
             }
         }
+        if (jugadorEncontrado) {
+            break;
+        }
     }
+
+    if (!jugadorEncontrado) {
+        System.out.println("No se encontró al jugador");
+    }
+}
+
+
 }
