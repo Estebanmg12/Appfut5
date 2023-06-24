@@ -23,7 +23,7 @@ public class MenuImpl implements Menu {
         };
         System.out.println("estoy");
         nuevoEquipo.buscarEquipo();
-        jugadorNuevo.buscarJugador();
+        jugadorNuevo.buscarJugador(nuevoEquipo);
         
         
 

@@ -51,7 +51,7 @@ public class Equipo {
         this.entrenador = entrenador;
     }
 
-    public Jugador obtenerEquipo(String nombreJugador) {
+    public Jugador obtenerJugador(String nombreJugador) {
         for (Jugador jugador : listaDeJugadores) {
             if (jugador.getNombre().equals(nombreJugador)) {
                 return jugador;

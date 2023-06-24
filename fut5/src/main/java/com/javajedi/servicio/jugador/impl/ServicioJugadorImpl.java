@@ -57,16 +57,15 @@ public class ServicioJugadorImpl implements ServicioJugador {
     }
 
     @Override
-    public void buscarJugador() {
-    ServicioEquipoImpl traemeLosEquipos = new ServicioEquipoImpl();
+    public void buscarJugador(ServicioEquipoImpl servicioEquipo) {
     System.out.println("Por favor ingrese el nombre del jugador a buscar: ");
     capturaBuscarJugador = InputService.scanner.nextLine();
 
     boolean jugadorEncontrado = false;
 
-    for (Equipo equipo : traemeLosEquipos.getEquipos()) {
+    for (Equipo equipo : servicioEquipo.getEquipos()) {
         for (Jugador jugador : equipo.getListaDeJugadores()) {
-            if (jugador.getNombre().equals(capturaBuscarJugador)) {
+            if (jugador.getNombre().equalsIgnoreCase(capturaBuscarJugador)) {
                 System.out.println(jugador.getNombre() + " " +
                         jugador.getApellido() + " " +
                         jugador.getPosicion().getNombre() + " " +
