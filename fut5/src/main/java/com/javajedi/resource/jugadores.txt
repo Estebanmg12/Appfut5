@@ -1,0 +1,4 @@
+marcos;gonzalez;1.90;Arquero;1;false;1;fuerzajoven
+lucas;cabral;1.80;Defensor;3;false;2;fuerzajoven
+esteban;gonzalez;1.77;Mediocampista;5;true;5;fuerzajoven
+neitor;negri;1.85;Delantero;12;false;9;fuerzajoven

@@ -8,9 +8,11 @@ import com.javajedi.servicio.menu.impl.MenuImpl;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    
+    public static void main( String[] args ) {
         System.out.println( "Hello World!" );
+        
+        
         new MenuImpl().crearEquipoYJugadores();
     }
 }

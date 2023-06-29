@@ -1,7 +1,7 @@
 package com.javajedi.servicio.posicion.impl;
 
 import com.javajedi.dominios.Posicion;
-import com.javajedi.servicio.entrada.impl.InputService;
+import com.javajedi.servicio.entrada.consola.impl.InputService;
 import com.javajedi.servicio.posicion.ServicioPosicion;
 
 public class ServicioPosicionImpl implements ServicioPosicion {

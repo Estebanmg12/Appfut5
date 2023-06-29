@@ -1,0 +1,4 @@
+marcos;gonzalez;1.9;Arquero;1;false;1
+lucas;cabral;1.8;Defensor;3;false;2
+esteban;gonzalez;1.77;Mediocampista;5;true;5
+neitor;negri;1.85;Delantero;12;false;9

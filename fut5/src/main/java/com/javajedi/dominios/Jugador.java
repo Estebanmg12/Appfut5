@@ -81,6 +81,6 @@ public class Jugador extends Persona {
 
     @Override
     public String toString(){
-        return this.getNombre() + " " + this.getApellido() + " " + this.getNroDeCamiseta();
+        return this.getNombre() + " " + this.getApellido();
     }
 }

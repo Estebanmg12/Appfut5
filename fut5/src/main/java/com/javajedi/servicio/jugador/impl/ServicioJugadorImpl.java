@@ -3,7 +3,7 @@ package com.javajedi.servicio.jugador.impl;
 import com.javajedi.dominios.Equipo;
 import com.javajedi.dominios.Jugador;
 import com.javajedi.dominios.Posicion;
-import com.javajedi.servicio.entrada.impl.InputService;
+import com.javajedi.servicio.entrada.consola.impl.InputService;
 import com.javajedi.servicio.equipo.Impl.ServicioEquipoImpl;
 import com.javajedi.servicio.jugador.ServicioJugador;
 import com.javajedi.servicio.posicion.ServicioPosicion;

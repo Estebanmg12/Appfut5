@@ -3,7 +3,7 @@ package com.javajedi.servicio.entrenador.impl;
 import java.time.LocalDate;
 
 import com.javajedi.dominios.Entrenador;
-import com.javajedi.servicio.entrada.impl.InputService;
+import com.javajedi.servicio.entrada.consola.impl.InputService;
 import com.javajedi.servicio.entrenador.ServicioEntrenador;
 
 public class ServicioEntrenadorImpl implements ServicioEntrenador{

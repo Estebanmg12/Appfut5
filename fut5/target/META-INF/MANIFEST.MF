@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Created-By: Apache Maven 3.8.6
-Built-By: diego
-Build-Jdk: 17.0.7
-Main-Class: com.javajedi.App

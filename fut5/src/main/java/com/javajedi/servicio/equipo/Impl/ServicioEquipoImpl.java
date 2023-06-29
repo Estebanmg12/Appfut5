@@ -6,8 +6,10 @@ import java.util.List;
 import com.javajedi.dominios.Equipo;
 import com.javajedi.dominios.Jugador;
 import com.javajedi.servicio.equipo.ServicioEquipo;
+import com.javajedi.servicio.jugador.ServicioJugador;
 import com.javajedi.servicio.jugador.impl.ServicioJugadorImpl;
-import com.javajedi.servicio.entrada.impl.InputService;
+import com.javajedi.servicio.entrada.consola.impl.InputService;
+import com.javajedi.servicio.entrenador.ServicioEntrenador;
 import com.javajedi.servicio.entrenador.impl.ServicioEntrenadorImpl;
 
 public class ServicioEquipoImpl implements ServicioEquipo {
@@ -24,10 +26,10 @@ public class ServicioEquipoImpl implements ServicioEquipo {
         System.out.println("Ingrese el nombre del equipo: ");
         equipoNuevo.setNombre(InputService.getScanner().nextLine());
         
-        ServicioEntrenadorImpl entrenadorNuevo = new ServicioEntrenadorImpl();
+        ServicioEntrenador entrenadorNuevo = new ServicioEntrenadorImpl();
         equipoNuevo.setEntrenador(entrenadorNuevo.crearEntrenador());
 
-        ServicioJugadorImpl jugadorNuevo = new ServicioJugadorImpl();
+        ServicioJugador jugadorNuevo = new ServicioJugadorImpl();
         for (int i = 0; i < 2; i++) {
             listaDeJugadores.add(jugadorNuevo.crearJugador(this));
         }
@@ -51,7 +53,7 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 
         
     @Override
-    public void buscarEquipo() {
+    public void buscarEquipos() {
         System.out.println("Por favor ingrese el nombre del equipo a buscar: ");
         buscarEquipos = InputService.getScanner().nextLine();
         System.out.println("Por favor ingrese el nombre del entrenador");
@@ -83,9 +85,14 @@ public class ServicioEquipoImpl implements ServicioEquipo {
     }
 
     @Override
-    public Equipo eliminarEquipo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminarEquipo'");
+    public void eliminarEquipo() {
+        System.out.println("Por favor ingrese el nombre el equipo que quiere eliminar: ");
+        buscarEquipos = InputService.getScanner().nextLine();
+        for (Equipo equipo : equipos) {
+            if (equipo.getNombre().equalsIgnoreCase(buscarEquipos)){
+                equipos.remove(equipo);
+            }
+        }
     }
     public List<Equipo> getEquipos() {
         return equipos;
@@ -93,6 +100,19 @@ public class ServicioEquipoImpl implements ServicioEquipo {
 
     public void setEquipos(List<Equipo> equipos) {
         this.equipos = equipos;
+    }
+
+    @Override
+    public void buscarEquipo() {
+        System.out.println("Por favor ingrese el nombre del equipo a buscar: ");
+        buscarEquipos = InputService.getScanner().nextLine();
+        for (Equipo equipo : equipos) {
+            if(equipo.getNombre().equalsIgnoreCase(buscarEquipos)){
+                System.out.println(equipo.getNombre() +" "+ 
+                equipo.getEntrenador().getNombre() +
+                " "+ equipo.getListaDeJugadores());
+            }
+        }
     }
 
     
