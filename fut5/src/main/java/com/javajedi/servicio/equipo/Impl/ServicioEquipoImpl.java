@@ -15,9 +15,8 @@ import com.javajedi.servicio.entrenador.impl.ServicioEntrenadorImpl;
 public class ServicioEquipoImpl implements ServicioEquipo {
     List<Equipo> equipos = new ArrayList<>();
     
-
     String buscarEquipos, nombreEntrenador, nombreCapitanEquipo;
-    
+    ServicioEntrenador entrenadorNuevo = new ServicioEntrenadorImpl();
 
     @Override
     public Equipo crearEquipo() {
@@ -26,7 +25,6 @@ public class ServicioEquipoImpl implements ServicioEquipo {
         System.out.println("Ingrese el nombre del equipo: ");
         equipoNuevo.setNombre(InputService.getScanner().nextLine());
         
-        ServicioEntrenador entrenadorNuevo = new ServicioEntrenadorImpl();
         equipoNuevo.setEntrenador(entrenadorNuevo.crearEntrenador());
 
         ServicioJugador jugadorNuevo = new ServicioJugadorImpl();
